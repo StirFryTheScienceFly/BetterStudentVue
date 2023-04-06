@@ -4,13 +4,17 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const fs = require('fs');
 
+const SV_PORTAL_URL = '';
+const SV_USERNAME = '';
+const SV_PASSWORD = '';
+
 const StudentVue = require('studentvue.js');
 
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     //login to studentvue
-    StudentVue.login('https://mn-mvps-psv.edupoint.com/PXP2_Login_Student.aspx?regenerateSessionId=True', '2025roloa82', 'Drew2007$')
+    StudentVue.login(SV_PORTAL_URL, SV_USERNAME, SV_PASSWORD)
         .then(client => client.getGradebook())
         .then(response => {
             const jsonData = JSON.parse(response);
