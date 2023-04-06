@@ -1,0 +1,76 @@
+* {
+    text-decoration: none;
+    color: #6fe3d3;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    background-color: #141414;
+}
+
+body {
+    background: linear-gradient(to bottom, #141414, #242424);
+    color: #6fe3d3;
+}
+
+h1 {
+    text-decoration: none;
+    border-bottom: 2px solid #6fe3d3;
+}
+
+.BreakdownBorder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.GradeBreakdown {
+    width: 20%;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    color: #6fe3d3;
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 1.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.GradeBreakdown:hover {
+    background-color: #3f8077;
+}
+
+.assignment {
+    padding: 1rem 0.5rem;
+    width: 100%;
+    background-color: #242424;
+    color: #6fe3d3;
+    text-align: left;
+    font-size: 1rem;
+    border-radius: 1.5rem;
+}
+
+.assignment:hover {
+    background-color: #3f8077;
+}
+
+.assignmentborder {
+    border-radius: 1.5rem;
+    width: 90%;
+    padding: 0.5rem;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Add custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: #141414;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #222222, #353535);
+    border-radius: 10px;
+}

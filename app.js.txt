@@ -1,0 +1,107 @@
+/* const express = require('express');
+const app = express();
+const port = 3000;
+const Handlebars = require('handlebars');
+const fs = require('fs');
+
+const StudentVue = require('studentvue.js');
+const scoresArray = require('.');
+
+app.get('/', (req, res) => {
+    StudentVue.login('https://mn-mvps-psv.edupoint.com/PXP2_Login_Student.aspx?regenerateSessionId=True', '2025roloa82', 'Drew2007$')
+        .then(client => client.getGradebook())
+        .then(response => {
+            const jsonData = JSON.parse(response);
+            const marksArray = jsonData.Gradebook.Courses.Course.flatMap(course => course.Marks.Mark);
+            const scoresArray = marksArray.map(mark => mark.CalculatedScoreString);
+
+            // Create an HTML table with the scores array
+            let htmlTable = '<table>';
+            scoresArray.forEach(score => {
+                htmlTable += '<tr><td>' + score + '</td></tr>';
+            });
+            htmlTable += '</table>';
+            // Read the template file
+            fs.readFile('template.html', 'utf8', function (err, data) {
+                if (err) {
+                    console.log(err);
+                    res.status(500).send('Error reading template file');
+                }
+                // Replace the placeholder with the table HTML string
+                const outputHtml = data.replace('<div id="table-placeholder"></div>', htmlTable);
+
+                // Send the output HTML to the client
+                res.send(outputHtml);
+            });
+        })
+        .catch(error => {
+            console.error(error);
+            res.send('Error occurred: ' + error.message);
+        });
+});
+
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`);
+});
+ */
+
+//-----------------------------------------------------------------------------------
+
+/* const express = require('express');
+const app = express();
+const port = 3000;
+const Handlebars = require('handlebars');
+const fs = require('fs');
+
+const StudentVue = require('studentvue.js');
+
+app.get('/', (req, res) => {
+    StudentVue.login('https://mn-mvps-psv.edupoint.com/PXP2_Login_Student.aspx?regenerateSessionId=True', '2025roloa82', 'Drew2007$')
+        .then(client => client.getGradebook())
+        .then(response => {
+            const jsonData = JSON.parse(response);
+            const courses = jsonData.Gradebook.Courses.Course;
+            const marksArray = courses.flatMap(course => {
+                const courseName = course.CourseName;
+                return course.Marks.Mark.map(mark => {
+                    return {
+                        courseName,
+                        mark: mark.CalculatedScoreString
+                    }
+                });
+            });
+
+            // Create an HTML table with the course names and grades
+            let htmlTable = '<table>';
+            marksArray.forEach(mark => {
+                htmlTable += '<tr><td>' + mark.courseName + '</td><td>' + mark.mark + '</td></tr>';
+            });
+            htmlTable += '</table>';
+
+            // Read the template file
+            fs.readFile('template.html', 'utf8', function (err, data) {
+                if (err) {
+                    console.log(err);
+                    res.status(500).send('Error reading template file');
+                }
+
+                // Replace the placeholder with the table HTML string
+                const outputHtml = data.replace('<div id="table-placeholder"></div>', htmlTable);
+
+                // Send the output HTML to the client
+                res.send(outputHtml);
+            });
+        })
+        .catch(error => {
+            console.error(error);
+            res.send('Error occurred: ' + error.message);
+        });
+});
+
+app.listen(port, () => {
+    console.log(`App listening at http://localhost:${port}`);
+});
+
+ */
+
+//-------------------------------------------------------------------------------------------------

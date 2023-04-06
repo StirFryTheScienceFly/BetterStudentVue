@@ -1,0 +1,101 @@
+:root {
+    --color-background: #e7e7e7;
+    --color-background-lighter: #c8c8c8;
+    --color-text: #252525;
+    --color-accent: #009970;
+    --color-border: #5d5d5d;
+    --radius: 1rem;
+    --padding: 1.5rem;
+    --nav-bar-background: #151515;
+}
+
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--color-background);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-text);
+}
+
+/* Heading styles */
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--nav-bar-background);
+    width: 5rem;
+    height: 100vh;
+    position: fixed;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    transition: width 200ms ease;
+}
+
+main {
+    margin-left: 5rem;
+    padding: 1rem;
+    height: 100vh;
+}
+
+.settings {
+    display: grid;
+    grid-template-rows: 20vh 20vh 20vh 20vh;
+    background-color: var(--color-background);
+    padding: 1rem;
+    height: 100%;
+}
+
+.option {
+    background-color: var(--color-background-lighter);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.optioninteract {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 1rem;
+}
+
+.NavLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-background-lighter);
+    margin-top: 1rem;
+    margin-bottom: auto;
+}
+
+.NavLink a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.NavLink p {
+    display: none;
+    margin-left: 1rem;
+    color: var(--color-background-lighter);
+}
+
+nav:hover {
+    width: 10rem;
+}
+
+nav:hover p {
+    display: block;
+}
+
+.icon {
+    filter: invert(100%) brightness(200%);
+}

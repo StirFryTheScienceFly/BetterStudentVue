@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>${courseName1}</title>
+    <link rel="stylesheet" type="text/css" href="/coursestyle.css">
+</head>
+
+<body>
+    <h1><a href="/">${courseName}</a></h1>
+    <h2>Assignments</h2>
+</body>
+
+</html>

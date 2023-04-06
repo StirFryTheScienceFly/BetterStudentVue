@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/settingsstyle.css">
+    <title>BSV Settings</title>
+    <!--     <script src="/client.js"></script> -->
+</head>
+
+<body>
+    <nav>
+        <div class="NavLink">
+            <a href="/">
+                <img src="/images/grades.png" width="32" class="icon">
+                <p>Gradebook</p>
+            </a>
+        </div>
+        <div class="NavLink">
+            <a href="/settings">
+                <img src="/images/settings.png" width="32" class="icon">
+                <p>Settings</p>
+            </a>
+        </div>
+        <div class="NavLink" id="1">
+            <a href="#">
+                <img src="/images/sunny-day.png" width="32" class="icon">
+                <p>Theme</p>
+            </a>
+        </div>
+    </nav>
+    <main>
+        <h1>Settings</h1>
+        <div class="settings">
+            <div class="option">
+                <h3>Grade Calculation Summary</h3>
+                <div class="optioninteract">
+                    <input type="checkbox" id="checkbox1" checked="">
+                    <p>Shows/Hides the grade calculation summary. </p>
+                </div>
+            </div>
+            <div class="option">
+                <h3>Show Assignment ID</h3>
+                <div class="optioninteract">
+                    <input type="checkbox" id="checkbox2" checked="">
+                    <p>Shows/Hides the assignment IDs.</p>
+                </div>
+            </div>
+            <div class="option">
+                <h3>Show Date</h3>
+                <div class="optioninteract">
+                    <input type="checkbox" id="checkbox3" checked="">
+                    <p>Shows/Hides the date of assignments.</p>
+                </div>
+            </div>
+            <div class="option">
+                <h3>Show Due Date</h3>
+                <div class="optioninteract">
+                    <input type="checkbox" id="checkbox4" checked="">
+                    <p>Shows/Hides the due date of assignments.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // client.js
+        const checkbox1 = document.getElementById('checkbox1');
+        const checkbox2 = document.getElementById('checkbox2');
+        const checkbox3 = document.getElementById('checkbox3');
+        const checkbox4 = document.getElementById('checkbox4');
+
+        /*         // Listen for changes in the checkbox1
+                checkbox1.addEventListener('change', (event) => {
+                    const isChecked1 = event.target.checked; // check if checkbox is checked
+                    console.log(isChecked1);
+        
+                    // Send the checkbox status to the server using an HTTP request
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/submit');
+                    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+                    xhr.onload = () => {
+                        if (xhr.status === 200) {
+                            console.log('Checkbox status sent successfully!');
+                        } else {
+                            console.error('Failed to send checkbox status');
+                        }
+                    };
+                    xhr.send(JSON.stringify({ isChecked1 }));
+                });
+        
+                // Listen for changes in the checkbox2
+                checkbox2.addEventListener('change', (event) => {
+                    const isChecked2 = event.target.checked; // check if checkbox is checked
+                    console.log(isChecked2);
+                    // Send the checkbox status to the server using an HTTP request
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/submit');
+                    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+                    xhr.onload = () => {
+                        if (xhr.status === 200) {
+                            console.log('Checkbox status sent successfully!');
+                        } else {
+                            console.error('Failed to send checkbox status');
+                        }
+                    };
+                    console.log(JSON.stringify({ isChecked2 }));
+                    xhr.send(JSON.stringify({ isChecked2 }));
+                }); */
+
+        /*         // Listen for changes in both checkboxes
+                checkbox1.addEventListener('change', (event) => {
+                    const isChecked1 = event.target.checked; // check if checkbox1 is checked
+                    checkbox2.dispatchEvent(new Event('change')); // dispatch an event to trigger the checkbox2 listener
+                });
+        
+                checkbox2.addEventListener('change', (event) => {
+                    const isChecked2 = event.target.checked; // check if checkbox2 is checked
+                    console.log(isChecked2);
+                    // Send the checkbox status to the server using an HTTP request
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/submit');
+                    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+                    xhr.onload = () => {
+                        if (xhr.status === 200) {
+                            console.log('Checkbox status sent successfully!');
+                        } else {
+                            console.error('Failed to send checkbox status');
+                        }
+                    };
+                    const data = { isChecked1: checkbox1.checked, isChecked2 };
+                    console.log(data);
+                    xhr.send(JSON.stringify(data));
+                });
+         */
+
+        // Listen for changes in the checkbox1
+        checkbox1.addEventListener('change', (event) => {
+            sendCheckboxStatus();
+        });
+
+        // Listen for changes in the checkbox2
+        checkbox2.addEventListener('change', (event) => {
+            sendCheckboxStatus();
+        });
+
+        // Listen for changes in the checkbox3
+        checkbox3.addEventListener('change', (event) => {
+            sendCheckboxStatus();
+        });
+
+        // Listen for changes in the checkbox4
+        checkbox4.addEventListener('change', (event) => {
+            sendCheckboxStatus();
+        });
+
+        // Send all checkbox statuses to the server using an HTTP request
+        function sendCheckboxStatus() {
+            const isChecked1 = checkbox1.checked;
+            const isChecked2 = checkbox2.checked;
+            const isChecked3 = checkbox3.checked;
+            const isChecked4 = checkbox4.checked;
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/submit');
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    console.log('Checkbox status sent successfully!');
+                } else {
+                    console.error('Failed to send checkbox status');
+                }
+            };
+            xhr.send(JSON.stringify({ isChecked1, isChecked2, isChecked3, isChecked4 }));
+        }
+
+
+        // Fetch the JSON file
+        fetch('/settings.json')
+            .then(response => response.json())
+            .then(data => {
+                // Access the JSON data here and use it as needed
+                console.log(data);
+                const checkboxCheckedChecker1 = data.doGradeBreakdown;
+                const checkboxCheckedChecker2 = data.doGradebookID;
+                const checkboxCheckedChecker3 = data.doAssignmentDate;
+                const checkboxCheckedChecker4 = data.doAssignmentDueDate;
+
+                if (checkboxCheckedChecker1) {
+                    checkbox1.checked = true;
+                    console.log(checkbox1);
+                } else {
+                    checkbox1.checked = false;
+                    console.log(checkbox1);
+                }
+                if (checkboxCheckedChecker2) {
+                    checkbox2.checked = true;
+                    console.log(checkbox2);
+                } else {
+                    checkbox2.checked = false;
+                    console.log(checkbox2);
+                }
+                if (checkboxCheckedChecker3) {
+                    checkbox3.checked = true;
+                    console.log(checkbox3);
+                } else {
+                    checkbox3.checked = false;
+                    console.log(checkbox3);
+                }
+                if (checkboxCheckedChecker4) {
+                    checkbox4.checked = true;
+                    console.log(checkbox4);
+                } else {
+                    checkbox4.checked = false;
+                    console.log(checkbox4);
+                }
+            })
+            .catch(error => console.error('Error fetching JSON:', error));
+
+    </script>
+</body>
+
+</html>

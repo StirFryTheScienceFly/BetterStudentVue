@@ -1,0 +1,152 @@
+:root {
+    --color-background: #e7e7e7;
+    --color-background-lighter: #c8c8c8;
+    --color-text: #252525;
+    --color-accent: #009970;
+    --color-border: #5d5d5d;
+    --padding: 0.25rem;
+}
+
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+    background-color: var(--color-background);
+}
+
+body {
+    background: linear-gradient(to bottom, var(--color-background), var(--color-background-lighter));
+    color: var(--color-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1rem;
+}
+
+/* Heading styles */
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    text-decoration: underline;
+    border-bottom: 2px solid var(--color-text);
+    text-decoration: none;
+}
+
+h1 a {
+    color: var(--color-text);
+}
+
+h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* Section styles */
+.section {
+    background-color: var(--color-background-lighter);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 800px;
+    padding: var(--padding);
+}
+
+/* Table styles */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--padding);
+    text-align: left;
+}
+
+th {
+    background-color: var(--color-background-lighter);
+}
+
+td {
+    background-color: var(--color-background-lighter);
+    color: var(--color-accent);
+}
+
+td a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Assignment styles */
+.assignmentborder {
+    width: 90%;
+    padding: var(--padding);
+    background-color: var(--color-background-lighter);
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: var(--padding);
+}
+
+.assignment {
+    padding: 1rem 0.5rem;
+    width: 100%;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    text-align: left;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.assignment:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background-lighter);
+}
+
+/* Grade breakdown styles */
+.BreakdownBorder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+
+.GradeBreakdown {
+    width: 20%;
+    padding: var(--padding);
+    background-color: var(--color-background-lighter);
+    color: var(--color-text);
+    text-align: center;
+    font-size: 1.5rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.GradeBreakdown:hover {
+    background-color: var(--color-accent);
+    color: var(--color-background-lighter);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--color-background);
+}
+
+/* Add custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--color-background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--color-background-lighter), var(--color-border));
+}
