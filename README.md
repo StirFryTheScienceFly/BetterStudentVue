@@ -23,6 +23,9 @@ There is a settings menu built in to this app, which allows you to enable/disabl
 
 # Planned Features
 -GPA (Weighted / Unweighted)
+
 -Theme Customization
+
 -More settings options
+
 -More pages with various things (Messages, etc.
